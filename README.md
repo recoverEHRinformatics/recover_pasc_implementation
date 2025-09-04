@@ -1,6 +1,8 @@
 # RECOVER PASC CP Implementation
 
-
+## Quick run guide
+- Download/copy code provided in python file pasc_cp.py ([https://github.com/Mikekoropsak/recover_pasc_implementation/blob/main/pasc_cp.py](url)) and load into your code editor
+- Package requires 1 diagnosis dataframe that contains the following columns: patient identifier, ICD-10 diagnsoses, and covid index date. 
 
 We used ICD-10 codes under categories outlined in the code set to identify patients who could be classified as having PASC. We followed the steps below to identify whether the diagnosis of interest is a PASC diagnosis or a comorbidity.
 1.	Identify patient’s index date of COVID-19 infection. 
