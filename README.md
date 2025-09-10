@@ -15,3 +15,5 @@ a.	If the earliest instance of a diagnosis category identified in step 3 is also
 b.	If the earliest instance is a diagnosis category is after the index date only, this is a PASC diagnosis.
 Patient’s PASC status is assigned by identifying patients who have at least one PASC diagnosis in their records.
 
+## Using with OMOP CDM
+
