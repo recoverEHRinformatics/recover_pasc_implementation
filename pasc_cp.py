@@ -13,7 +13,7 @@ def get_pasc_all(diagnosis:Union[pd.DataFrame, dd.DataFrame], PASC_definition:Un
     '''
     # convert the diagnosis input variable to a dask dataframe if it's a pandas dataframe
     if isinstance(diagnosis, pd.DataFrame):
-        pasc_diagnoses = dd.from_pandas(diagnosis, npartitions = 2 * multiprocessing.cpu_count()) # TODO: look into picking the optimal number
+        pasc_diagnoses = dd.from_pandas(diagnosis, npartitions = 2 * multiprocessing.cpu_count()) 
 
 
     # create a smaller subset of the diagnosis table containing only the PASC like diagnoses
