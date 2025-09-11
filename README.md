@@ -5,6 +5,8 @@
 - Package requires 1 dataframe with the following strcuture:
 | Patient identifier | Diagnosis Code ICD-10 | COVID Index Date |
 
+** add specific column names patient identifier = syn_pt_id
+
 
 ## Overview of Function 
 1.	Identify patient’s index date of COVID-19 infection. 
