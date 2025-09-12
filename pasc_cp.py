@@ -1,11 +1,11 @@
-def get_pasc_all(diagnosis:Union[pd.DataFrame, dd.DataFrame], PASC_definition:Union[pd.DataFrame, dd.DataFrame], patid_column='syn_pt_id', category='ccsr_category', **kwargs):
+def get_pasc_all(diagnosis:Union[pd.DataFrame, dd.DataFrame], PASC_definition:Union[pd.DataFrame, dd.DataFrame], patid_column='patid', category='pasc_category', **kwargs):
     '''get_pasc_all finds all instances of PASC subphenotypes among patients. A patient can have more than one PASC subphenotype.
 
     Args:
         diagnosis (pd.DataFrame): standard diagnosis table from PCORnet CDM containing all diagnoses for patients.
         PASC_definition (pd.DataFrame): a reference spreadsheet containing all ICD-10 codes and diagnosis categories of PASC-like symptoms.
-        patid_column (str, optional): _description_. Defaults to 'syn_pt_id'.
-        category (str, optional): _description_. Defaults to 'ccsr_category'.
+        patid_column (str, optional): _description_. Defaults to 'patid'.
+        category (str, optional): _description_. Defaults to 'pasc_category'.
         **kwargs: allows you to provide additional named arguments. To be used if the diagnosis table does not have an index_date columns
 
     Returns:
@@ -19,13 +19,13 @@ def get_pasc_all(diagnosis:Union[pd.DataFrame, dd.DataFrame], PASC_definition:Un
     # create a smaller subset of the diagnosis table containing only the PASC like diagnoses
     pasc_diagnoses = dd.merge(
         pasc_diagnoses,
-        PASC_definition[['i10_code', 'ccsr_category']],
+        PASC_definition[['dx_code', 'pasc_category']],
         left_on='dx',
-        right_on='i10_code', 
+        right_on='dx_code', 
         how='inner'
     )
     # dropping duplicated column
-    pasc_diagnoses = pasc_diagnoses.drop(columns=(['i10_code']))
+    pasc_diagnoses = pasc_diagnoses.drop(columns=(['dx_code']))
 
     # save the index argument if provided
     index = kwargs.get('index', None)
@@ -69,7 +69,7 @@ def get_pasc_all(diagnosis:Union[pd.DataFrame, dd.DataFrame], PASC_definition:Un
     pasc_diagnoses = pasc_diagnoses[pasc_diagnoses['days_from_index'] <= 180]
 
     # select the necessary columns and drop the duplicates
-    # by only including the CCSR category column (i.e. ccsr_category) and excluding the ICD-10 code column (i10_code)
+    # by only including the PASC category column (i.e. pasc_category) and excluding the ICD-10 code column (i10_code)
     # we ensure that if there are several ICD-10 codes within the same category, we count them as the same
     pasc_diagnoses = pasc_diagnoses[[patid_column, 'days_from_index', category, 'admit_date']].drop_duplicates().reset_index(drop=True)
 
@@ -87,7 +87,7 @@ def get_pasc_all(diagnosis:Union[pd.DataFrame, dd.DataFrame], PASC_definition:Un
     pasc_diagnoses = pasc_diagnoses.assign(year_incidence = pasc_diagnoses['date_incidence'].apply(lambda x: x.year, meta=('date_incidence', 'int8')))
     pasc_diagnoses = pasc_diagnoses.assign(month_incidence = pasc_diagnoses['date_incidence'].apply(lambda x: x.month, meta=('date_incidence', 'int8')))
 
-    # keeping patid_column (i.e. syn_pt_id) and category (i.e. ccsr_category) columns as a column rather than an index
+    # keeping patid_column (i.e. patid) and category (i.e. pasc_category) columns as a column rather than an index
     pasc_diagnoses = pasc_diagnoses.reset_index()
 
     pasc_diagnoses = pasc_diagnoses.compute()
