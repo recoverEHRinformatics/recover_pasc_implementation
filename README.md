@@ -16,6 +16,9 @@ a.	If the earliest instance of a diagnosis category identified in step 3 is also
 b.	If the earliest instance is a diagnosis category is after the index date only, this is a PASC diagnosis.
 Patient’s PASC status is assigned by identifying patients who have at least one PASC diagnosis in their records.
 
+<img width="800" height="176" alt="image" src="https://github.com/user-attachments/assets/c3198488-3deb-4fd9-98f5-4b28d898f54f" />
+
+
 ## Using with OMOP CDM (UPDATES IN PROGRESS)
 - Our PASC CP was developed using the PCORnet CDM which utilized ICD-10 diagnosis codes. However, the algorithm used is CDM agnostic and can accept any CDM/PASC codeset after making the following edits:
   - Ensure patient identifier column has been renamed to patid
