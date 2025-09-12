@@ -4,7 +4,7 @@
 - Download/copy code provided in python file pasc_cp.py [https://github.com/recoverEHRinformatics/recover_pasc_implementation/blob/main/pasc_cp.py](url) and load into your code editor
 - Package requires 1 dataframe with the following columns:
   - patid (patient identifier)
-  - dx (icd-10 diagnosis code)
+  - dx_code (icd-10 diagnosis code)
   - index_date (covid index date, 1 per patient)
 
 ## Overview of Function 
