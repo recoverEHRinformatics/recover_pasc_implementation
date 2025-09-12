@@ -2,11 +2,10 @@
 
 ## Quick run guide
 - Download/copy code provided in python file pasc_cp.py [https://github.com/recoverEHRinformatics/recover_pasc_implementation/blob/main/pasc_cp.py](url) and load into your code editor
-- Package requires 1 dataframe with the following strcuture:
-| Patient identifier | Diagnosis Code ICD-10 | COVID Index Date |
-
-** add specific column names patient identifier = syn_pt_id
-
+- Package requires 1 dataframe with the following columns:
+  - patid (patient identifier)
+  - dx (icd-10 diagnosis code)
+  - index_date (covid index date, 1 per patient)
 
 ## Overview of Function 
 1.	Identify patient’s index date of COVID-19 infection. 
