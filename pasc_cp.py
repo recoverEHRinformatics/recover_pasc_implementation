@@ -1,3 +1,18 @@
+import pandas as pd
+# import dask as dd
+
+# PCORnet PASC codeset, can be replaced  
+pasc_definition = pd.read_csv("https://raw.githubusercontent.com/recoverEHRinformatics/data-analysis-pipeline/main/external%20data%20sources/pasc_definition.csv")
+
+# please reference the correct column names in your spreadsheet if using a different one
+pasc_definition = pasc_definition.rename(columns={
+    'ICD-10-CM': 'dx_code',
+    'CCSR CATEGORY 1 DESCRIPTION': 'pasc_category',
+    'PASC Name Simple': 'pasc_name_simple',
+    'Organ Domain': 'system'
+})
+
+
 def get_pasc_all(diagnosis:Union[pd.DataFrame, dd.DataFrame], PASC_definition:Union[pd.DataFrame, dd.DataFrame], patid_column='patid', category='pasc_category', **kwargs):
     '''get_pasc_all finds all instances of PASC subphenotypes among patients. A patient can have more than one PASC subphenotype.
 
