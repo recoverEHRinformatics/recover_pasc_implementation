@@ -18,5 +18,5 @@ Patient’s PASC status is assigned by identifying patients who have at least on
 
 ## Using with OMOP CDM (UPDATES IN PROGRESS)
 - Our PASC CP was developed using the PCORnet CDM which utilized ICD-10 diagnosis codes. However, the algorithm used is CDM agnostic and can accept any CDM/PASC codeset after making the following edits:
-  - Ensure patient identifier column has been updated to patid
-  - If interested users have created their own PASC condition codeset in omop, they will need to update their diagnosis column name to dx_code and the associated condition category to pasc_category
+  - Ensure patient identifier column has been renamed to patid
+  - If interested users have created their own PASC condition codeset in OMOP, they will need to update their diagnosis column name to dx_code and the associated condition category to pasc_category
