@@ -17,3 +17,5 @@ b.	If the earliest instance is a diagnosis category is after the covid index dat
 Patient’s PASC status is assigned by identifying patients who have at least one PASC diagnosis in their records.
 
 <img width="800" height="176" alt="image" src="https://github.com/user-attachments/assets/c3198488-3deb-4fd9-98f5-4b28d898f54f" />
+
+* This algorithm and codeset were derived from the publication [Data-driven analysis to understand long COVID using electronic health records from the RECOVER initiative](https://www.nature.com/articles/s41467-023-37653-z) that used a high throughput causal inference model to identify higher incidence conditions in covid positive versus covid negative patients. 
