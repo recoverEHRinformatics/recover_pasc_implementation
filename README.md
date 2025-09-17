@@ -1,7 +1,7 @@
 # RECOVER PASC CP Implementation
 
 ## Quick run guide
-- Download/copy code provided in python file [https://github.com/recoverEHRinformatics/recover_pasc_implementation/blob/main/pasc_cp.py](pasc_cp.py) and load into your code editor
+- Download/copy code provided in python file [pasc_cp.py](https://github.com/recoverEHRinformatics/recover_pasc_implementation/blob/main/pasc_cp.py) and load into your code editor
 - Package requires 1 dataframe with the following columns:
   - patid (patient identifier)
   - dx_code (icd-10 diagnosis code)
